@@ -39,16 +39,16 @@ const TaskContextProvider = (props) => {
     setTaskList([]);
   };
 
-  // Function to find a task in the list by its ID
+  // Function to find a task in the list by its ID and make it Editable
   const findTask = (id) => {
     setEditTitle(taskList.find((task) => task.id === id));
   };
 
   // Function to edit the title of a task in the list
   const editTask = (title, id) => {
-    setTaskList((prevTaskList) =>
-      prevTaskList.map((task) => (task.id === id ? { title, id } : task))
-    );
+    setTaskList((prevTaskList) => {
+      return prevTaskList.map((task) => (task.id === id ? { title, id } : task))
+    });
     setEditTitle(null);
   };
 
